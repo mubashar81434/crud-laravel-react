@@ -1,3 +1,4 @@
+import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { Button } from '@/components/ui/button';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
@@ -5,6 +6,7 @@ import AppLayout from '@/layouts/app-layout';
 import { type BreadcrumbItem } from '@/types';
 import { Input } from '@headlessui/react';
 import { Head, useForm } from '@inertiajs/react';
+import { CircleAlert } from 'lucide-react';
 import React from 'react';
 
 const breadcrumbs: BreadcrumbItem[] = [
@@ -15,7 +17,6 @@ const breadcrumbs: BreadcrumbItem[] = [
 ];
 
 export default function Index() {
-
     const { data, setData, post, processing, errors } = useForm({
         name: 'apple',
         price: '2',
@@ -29,13 +30,24 @@ export default function Index() {
     };
 
     return (
-
         <AppLayout breadcrumbs={breadcrumbs}>
-
             <Head title="Products" />
 
             <div className="w-8/12 p-4">
                 <form action="" onSubmit={handleSubmit} className="flex flex-col gap-3">
+                    {Object.keys(errors).length > 0 && (
+                        <Alert>
+                            <CircleAlert />
+                            <AlertTitle>Errors!</AlertTitle>
+                            <AlertDescription>
+                                <ul>
+                                    {Object.entries(errors).map(([key, message]) => (
+                                        <li key={key}>{message as string}</li>
+                                    ))}
+                                </ul>
+                            </AlertDescription>
+                        </Alert>
+                    )}
                     <div className="flex flex-col gap-2">
                         <Label htmlFor="product name">Name</Label>
                         <Input
@@ -74,9 +86,6 @@ export default function Index() {
                     <Button type="submit">Add Product</Button>
                 </form>
             </div>
-
         </AppLayout>
-
     );
-    
 }
