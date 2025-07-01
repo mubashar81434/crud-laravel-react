@@ -1,15 +1,17 @@
 ---
-exerciseNo: 6.3
-questionNo: 1
-part: (i)
-statement: If θ lies in the first quadrant, find the remaining trigonometric ratios of θ.
+title: "Exercise 6.3 Q1 (i)"
+slug: "exercise-6-3-q1-i"
 ---
 
-**Given:** sin(θ) = 2/3  
-**Find:** cos(θ), tan(θ), cot(θ), sec(θ), cosec(θ)  
+**Given:**  
+\[
+\sin \theta = \frac{2}{3}
+\]
 
 **Solution:**  
-⇒ opposite = 2, hypotenuse = 3  
-⇒ adjacent = √(3² − 2²) = √5  
-cos(θ) = √5 / 3  
+\[
+\cos \theta = \frac{\sqrt{5}}{3}
+\quad
+\tan \theta = \frac{2}{\sqrt{5}} = \frac{2\sqrt{5}}{5}
 ...
+\]
